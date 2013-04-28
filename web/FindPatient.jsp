@@ -19,6 +19,7 @@
             <br/>Rodné číslo:<input type="text" name="rc">
             <br/>Zdravotná poisťovňa:<input type="text" name="poistovna">
             <br/><input type="submit" value="Vyhľadaj">
+            <input type="submit" value="Návrat" formaction="Home.jsp">
         </form>
     </body>
 </html>

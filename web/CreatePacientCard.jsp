@@ -13,25 +13,25 @@
     </head>
     <body>
 
-         <%
-        if (session.getAttribute("message") != null) {
-    %>   
+        <%
+            if (session.getAttribute("message") != null) {
+        %>   
 
-    <h3> <%= session.getAttribute("message")%> </h3>
+        <h3> <%= session.getAttribute("message")%> </h3>
 
-    <%        
-        session.setAttribute("message", null);
-        }
-//            connection.close();
-    %>
-        
+        <%
+                session.setAttribute("message", null);
+            }
+    //            connection.close();
+%>
+
         <%//  INSERT INTO `pacient` (`id`, `meno`, `priezvisko`, `rc`, `kontakt`, `poistovna_id`, `bydlisko_id`) VALUES
 //(1, 'Janko', 'Hraško', '9010159065', '0901123123', 1, 1);
 //  INSERT INTO `poistovna` (`id`, `nazov`) VALUES
 //(1, 'Vseobecna');
 //            INSERT INTO `bydlisko` (`id`, `ulica`, `cislo`, `mesto`, `psc`) VALUES
 //(1, 'Letná', 9, 'Košice', '04001');
-        %>
+%>
         <h1>Vytvorenie novej zdravotnej karty.</h1>
         <form action="CreatePacientCardCheck.jsp" method="post">
             <p>Údaje
@@ -54,8 +54,9 @@
                 <br/><input type="radio"  name="poistovna" value="">Iná <input type="text" name="poistovna2">
             </p>
             <br/><input type="submit" value="Potvrdiť">
+            <input type="submit" value="Návrat" formaction="Home.jsp">
         </form>
 
-        
+
     </body>
 </html>

@@ -34,8 +34,8 @@
  
         <h2>Prihlasovacie údaje:</h2>
         <form action="LoginCheck.jsp" method="post">
-            <br/>Username:<input type="text" name="username">
-            <br/>Password:<input type="password" name="password">
+            <br/>Login:<input type="text" name="username">
+            <br/>Heslo:<input type="password" name="password">
             <br/><input type="submit" value="Prihlásenie">
         </form>
         <form action="Register.jsp" method="post">

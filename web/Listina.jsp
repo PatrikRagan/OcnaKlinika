@@ -31,7 +31,7 @@
 // check weather connection is established or not by isClosed() method 
             ResultSet vystup = connection.createStatement().executeQuery("Select * from miestnost");
         %>
-        <form action="CakackaZoznam.jsp" method="POST">
+        <form method="POST">
             <%
                 while (vystup.next()) {
             %>
@@ -39,12 +39,57 @@
             <%
                 }
             %>
-            <input type="submit" value="zobraz">
+            <input type="submit" value="zobraz" formaction="CakackaZoznam.jsp">
+            <input type="submit" value="Návrat" formaction="Home.jsp">
         </form>
-        <% 
-            connection.close();
+        <%
+
         %>
         </font>
+        <%
+            if (session.getAttribute("show") != null) {
 
+
+// check weather connection is established or not by isClosed() method 
+                vystup = connection.createStatement().executeQuery("Select * from zaznam_cakacka");
+        %>
+    <body>
+        <table border="1">
+            <tr>
+                <td>Čas</td>
+                <td>poznamka</td>
+                <td>zákrok</td>
+                <td>rezervoval</td>
+            </tr>
+            <%
+                while (vystup.next()) {
+            %><tr>
+                <td><%=vystup.getString("datetime")%></td>
+                <td><%=vystup.getString("poznamka")%></td>
+                <%
+                    ResultSet zakrok = connection.createStatement().executeQuery("select nazov from zakrok where id='" + vystup.getString("id_zakrok") + "'");
+                    String zak = null;
+                    while (zakrok.next()) {
+                        zak = zakrok.getString("nazov");
+                    }
+                %>
+                <td><%=zak%></td>
+                <%
+                    ResultSet zadavatel = connection.createStatement().executeQuery("select * from zamestnanec where id='" + vystup.getString("id_autor") + "'");
+                    String zadal = null;
+                    while (zadavatel.next()) {
+                        zadal = zadavatel.getString("meno") + " " + zadavatel.getString("priezvisko");
+                    }
+                %>
+                <td><%=zadal%></td>
+            </tr>
+            <%
+                }
+            %>
+
+            <%
+                    session.setAttribute("show", null);
+                }
+            %>
     </body>
 </html>

@@ -59,6 +59,7 @@
                 <br/>Zákrok:<input type="text" name="zakrok">
             </p>
             <br/><input type="submit" value="Potvrdiť">
+            <input type="submit" value="Návrat" formaction="Home.jsp">
         </form>
     </body>
 </html>

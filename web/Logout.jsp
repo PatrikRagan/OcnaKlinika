@@ -17,7 +17,7 @@
             session.removeAttribute("password");
             session.invalidate();
         %>
-        <h1>Logout was done successfully.</h1>
+        <h1>Odhlásenie bolo úspešné.</h1>
         <form action="Login.jsp" method="post">
             <input type="submit" value="Návrat na hlavnú stránku.">
         </form>
