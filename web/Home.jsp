@@ -24,26 +24,27 @@
             <br/><input type="submit" value="Vytvoriť" formaction="CreatePacientCard.jsp">
             <br/><input type="submit" value="Vyhľadať" formaction="FindPatient.jsp">
             <p>Čakacia listina:
-            <br/><input type="submit" value="Editovať" formaction="Room.jsp">
+                <br/><input type="submit" value="Zobraziť" formaction="Listina.jsp">
+                <br/><input type="submit" value="Editovať" formaction="Room.jsp">
             </p>
-            <p>Zistenie polohy pacienta
-            <br/><input type="submit" value="Zobraziť" formaction="TODO.jsp">
+            <p>Nájsť pacienta:
+                <br/><input type="submit" value="Zobraziť" formaction="FindPatient.jsp">
             </p>
         </form>
         <br/>
         <br/>
         <br/><br/><br/><br/><br/>
-        
-    <%
-        if (session.getAttribute("flash") != null) {
-    %>   
 
-    <h3> <%= session.getAttribute("flash")%> </h3>
+        <%
+            if (session.getAttribute("flash") != null) {
+        %>   
 
-    <%        
-        session.setAttribute("flash", null);
-        }
-    %>
+        <h3> <%= session.getAttribute("flash")%> </h3>
+
+        <%
+                session.setAttribute("flash", null);
+            }
+        %>
 
         <a href="Logout.jsp">Logout</a>
     </center>

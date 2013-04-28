@@ -29,9 +29,9 @@
 //// check weather connection is established or not by isClosed() method 
 //            ResultSet vystup = connection.createStatement().executeQuery("Select * from zamestnaneclogin");
         %>
-
+   <center>
         <h1>Očná klinika</h1>
-    <center>
+ 
         <h2>Prihlasovacie údaje:</h2>
         <form action="LoginCheck.jsp" method="post">
             <br/>Username:<input type="text" name="username">
