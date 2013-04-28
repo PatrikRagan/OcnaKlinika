@@ -53,7 +53,7 @@
                 <br/><input type="radio"  name="poistovna" value="union">Union
                 <br/><input type="radio"  name="poistovna" value="">Iná <input type="text" name="poistovna2">
             </p>
-            <br/><input type="submit" value="Prihlásenie">
+            <br/><input type="submit" value="Potvrdiť">
         </form>
 
         

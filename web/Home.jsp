@@ -20,11 +20,15 @@
             %>
         </h2>
         <form method="post">
-            <!--            <br/>Username:<input type="text" name="username">
-                        <br/>Password:<input type="password" name="password">-->
             Elektronická Zdravotná karta:
             <br/><input type="submit" value="Vytvoriť" formaction="CreatePacientCard.jsp">
-            <br/><input type="submit" value="Vyhľadať" formaction="SearchPacientCard.jsp">
+            <br/><input type="submit" value="Vyhľadať" formaction="FindPatient.jsp">
+            <p>Čakacia listina:
+            <br/><input type="submit" value="Editovať" formaction="Room.jsp">
+            </p>
+            <p>Zistenie polohy pacienta
+            <br/><input type="submit" value="Zobraziť" formaction="TODO.jsp">
+            </p>
         </form>
         <br/>
         <br/>
@@ -39,7 +43,6 @@
     <%        
         session.setAttribute("flash", null);
         }
-//            connection.close();
     %>
 
         <a href="Logout.jsp">Logout</a>
