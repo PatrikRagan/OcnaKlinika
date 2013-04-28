@@ -188,6 +188,29 @@ INSERT INTO `zamestnanec` (`id`, `meno`, `priezvisko`, `typ`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Štruktúra tabuľky pre tabuľku `zamestnaneclogin` by @Patres
+--
+
+CREATE TABLE IF NOT EXISTS klinika.zamestnaneclogin (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `login` varchar(30) COLLATE utf8_bin NOT NULL,
+  `password` varchar(50) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+
+INSERT INTO klinika.zamestnaneclogin (`id`, `login`, `password`) VALUES
+(1, 'admin', 'admin');
+
+INSERT INTO klinika.zamestnaneclogin (`id`, `login`, `password`) VALUES
+(2, 'PR123', 'heslo');
+
+INSERT INTO klinika.zamestnaneclogin (`id`, `login`, `password`) VALUES
+(3, 'jozo', 'raz');
+
+
+-- --------------------------------------------------------
+
+--
 -- Štruktúra tabuľky pre tabuľku `zaznam_cakacka`
 --
 
