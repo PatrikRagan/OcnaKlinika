@@ -36,7 +36,10 @@
         <form action="LoginCheck.jsp" method="post">
             <br/>Username:<input type="text" name="username">
             <br/>Password:<input type="password" name="password">
-            <br/><input type="submit" value="Submit">
+            <br/><input type="submit" value="Prihlásenie">
+        </form>
+        <form action="Register.jsp" method="post">
+            <input type="submit" value="Registrácia">
         </form>
     </center>
     <%

@@ -16,7 +16,7 @@
             <h2>
             <%
             String a=session.getAttribute("username").toString();
-            out.println("Vitaj  "+a);
+            out.println("Vitaj  "+a +" v rozhrani OcnaKlinikaIS.");
             %>
             </h2>
             <br/>

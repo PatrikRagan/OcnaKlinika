@@ -1,23 +1,20 @@
 <%-- 
-    Document   : LoginCheck
-    Created on : 28.4.2013, 0:08:20
+    Document   : RegisterChceckout
+    Created on : 28.4.2013, 11:28:49
     Author     : Patres
 --%>
+<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
-        <%
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            Boolean succes = false;
-        %>
 
         <%
             /* Create string of connection url within specified format with machine name, port number and database name. Here machine name id localhost and database name is usermaster. */
@@ -31,32 +28,21 @@
 
             /* Create a connection by using getConnection() method that takes parameters of string type connection url, user name and password to connect to database. */
             connection = DriverManager.getConnection(connectionURL, "root", "heslo987");
-
+            Integer resp = -1;
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
 // check weather connection is established or not by isClosed() method 
-            ResultSet vystup = connection.createStatement().executeQuery("Select * from zamestnaneclogin");
-        %>
-
-        <%
-            while (vystup.next()) {
-        %>
-
-        <p><%= vystup%></p>
-
-        <%
-                if (username.equals(vystup.getString("login")) && password.equals(vystup.getString("password"))) {
-                    succes = true;
-                    session.setAttribute("username", username);
-                }
+//            ResultSet vystup = connection.createStatement().executeQuery("Select * from zamestnaneclogin");
+            Statement statement = connection.createStatement();
+            if (username != null && password != null) {
+                resp = statement.executeUpdate("INSERT INTO klinika.zamestnaneclogin ( `login`, `password`) VALUES('" + username + " ', ' " + password + " ')");
             }
-            if (succes == true) {
-                
-                response.sendRedirect("Home.jsp");
-            } else {
+            if (resp != -1) {
+//                connection.close();
                 response.sendRedirect("Login.jsp");
-                session.setAttribute("message", "Nesprávny login");
+                session.setAttribute("message", "Registrácia prebehla úspešne.");
             }
-            //        if((username.equals("anurag") && password.equals("jain")))
-
         %>
+
     </body>
 </html>
