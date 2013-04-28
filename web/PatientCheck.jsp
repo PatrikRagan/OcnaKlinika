@@ -82,6 +82,9 @@
                 <td>kontakt</td>
                 <td>dátum narodenia</td>
                 <td>zdravotná poistovňa</td>
+                <td>miestnosť</td>
+                <td>čas</td>
+                <td>zodpovedny</td>
 
             </tr>
 
@@ -101,6 +104,31 @@
                 <td><a href="popis.jsp<%=parameter%>"><%=vystup.getString(6)%></a></td>
                 <td><a href="popis.jsp<%=parameter%>"><%=vystup.getString(4)%></a></td>
                 <td><a href="popis.jsp<%=parameter%>"><%=poistovnaName%></a></td>
+                
+                <%
+                
+                ResultSet poloha= connection.createStatement().executeQuery("select id_pacient,id_miestnost,id_zamestnanec,max(datetime)from zaznam_pobyt group by id_pacient");
+                
+                while(poloha.next()){
+                if(poloha.getString("id_pacient").equals(vystup.getString(1))){
+                    String d="select nazov from miestnost where id='"+poloha.getString("id_miestnost")+"'";
+                  ResultSet izba = connection.createStatement().executeQuery(d); 
+                  String nazovIzby=null;
+                  while(izba.next()){nazovIzby=izba.getString("nazov");}
+                  String d2="select login from zamestnaneclogin where id='"+poloha.getString("id_zamestnanec")+"'";
+                  ResultSet pracovnik =connection.createStatement().executeQuery(d2);
+                  String login=null;
+                  while(pracovnik.next()){login=pracovnik.getString("login");}
+                    %>
+                    <td><%=nazovIzby%></td>
+                    <td><%=poloha.getString("max(datetime)")%></td>
+                    <td><%=login%></td>
+                    
+                <%
+                }
+                }
+                %>
+                <td><a href="PolohaPacienta.jsp<%=parameter%>">nova poloha pacienta</a></td>
             </tr>
             <%
                 }

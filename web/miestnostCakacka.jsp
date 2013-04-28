@@ -1,7 +1,7 @@
-<%-- 
-    Document   : main
+<%--
+    Document : main
     Created on : 26.4.2013, 10:03:45
-    Author     : notebook
+    Author : notebook
 --%>
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
@@ -17,16 +17,16 @@
             /* Create string of connection url within specified format with machine name, port number and database name. Here machine name id localhost and database name is usermaster. */
             String connectionURL = "jdbc:mysql://localhost:3306/klinika";
 
-// declare a connection by using Connection interface 
+// declare a connection by using Connection interface
             Connection connection = null;
 
-// Load JBBC driver "com.mysql.jdbc.Driver"
+// Load JBBC driver "com.mysql.jdbc.Driver"
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
             /* Create a connection by using getConnection() method that takes parameters of string type connection url, user name and password to connect to database. */
             connection = DriverManager.getConnection(connectionURL, "root", "heslo987");
 
-// check weather connection is established or not by isClosed() method 
+// check weather connection is established or not by isClosed() method 
             
             String miestnost =request.getParameter("miestnost");
             String stlpce="miestnost.nazov,poznamka,zakrok.nazov";
